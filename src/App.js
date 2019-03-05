@@ -5,22 +5,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: TodoItems
+      todos: TodoItems,
+      selected: true
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleClick() {
-    console.log("Clicked");
+  handleChange(id) {
+    console.log("Changed", id);
   }
   render() {
     const todoList = this.state.todos.map(item => (
-      <ToDoItem key={item.id} item={item} />
+      <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
     ));
     return (
       <div>
         <h1>This is ToDO list</h1>
         {todoList}
-        <button onClick={this.handleClick}>Click</button>
       </div>
     );
   }
