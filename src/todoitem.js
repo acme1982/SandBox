@@ -8,8 +8,8 @@ function ToDoItem(props) {
       <li>
         <input
           type="checkbox"
-          onChange={props.item.handleChange}
           checked={props.item.selected}
+          onChange={() => props.handleChange(props.item.id)}
         />
         <p style={{ display: "inline-block" }}>{props.item.text}</p>
       </li>
