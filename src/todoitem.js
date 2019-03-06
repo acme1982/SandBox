@@ -1,6 +1,6 @@
 import React from "react";
 const someStyles = { listStyleType: "none" };
-
+const pStyle = { display: "inline-block" };
 function ToDoItem(props) {
   return (
     <ul style={someStyles}>
@@ -10,7 +10,7 @@ function ToDoItem(props) {
           checked={props.item.selected}
           onChange={() => props.handleChange(props.item.id)}
         />
-        <p style={{ display: "inline-block" }}>{props.item.text}</p>
+        <p style={pStyle}>{props.item.text}</p>
       </li>
     </ul>
   );
