@@ -5,14 +5,24 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: TodoItems,
-      selected: true
+      todos: TodoItems
     };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(id) {
-    console.log("Changed", id);
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.selected = !todo.selected;
+        }
+        return todo;
+      });
+      return {
+        todos: updatedTodos
+      };
+    });
   }
+
   render() {
     const todoList = this.state.todos.map(item => (
       <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
