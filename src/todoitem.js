@@ -2,7 +2,6 @@ import React from "react";
 const someStyles = { listStyleType: "none" };
 
 function ToDoItem(props) {
-  console.log(props);
   return (
     <ul style={someStyles}>
       <li>
