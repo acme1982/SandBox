@@ -34,8 +34,9 @@ class App extends Component {
   }
   handleClick() {
     this.setState(log => {
-      log.isLogedIn ? (log.isLogedIn = false) : (log.isLogedIn = true);
-      return log;
+      return {
+        isLogedIn: !log.isLogedIn
+      };
     });
   }
 
