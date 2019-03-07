@@ -33,7 +33,14 @@ class App extends Component {
     }, 1500);
   }
   handleClick() {
-    console.log("Clicked");
+    this.setState(log => {
+      if (log.isLogedIn) {
+        log.isLogedIn = false;
+      } else {
+        log.isLogedIn = true;
+      }
+      return log;
+    });
   }
 
   render() {
@@ -51,7 +58,7 @@ class App extends Component {
         <h1>This is ToDO list</h1>
         {todoList}
 
-        <button type="button" onClick={this.handleClick}>
+        <button onClick={this.handleClick}>
           {this.state.isLogedIn
             ? (textToDisp = "Log Out")
             : (textToDisp = "Log in")}
