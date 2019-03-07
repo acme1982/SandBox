@@ -41,7 +41,10 @@ class App extends Component {
   }
 
   render() {
-    let textToDisp;
+    let textToDisp = this.state.isLogedIn ? "Log Out" : "Log in";
+    let textToDisp1 = this.state.isLogedIn
+      ? "You are logged in."
+      : "You are logged out.";
     const todoList = this.state.todos.map(item => (
       <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
     ));
@@ -55,11 +58,8 @@ class App extends Component {
         <h1>This is ToDO list</h1>
         {todoList}
 
-        <button onClick={this.handleClick}>
-          {this.state.isLogedIn
-            ? (textToDisp = "Log Out")
-            : (textToDisp = "Log in")}
-        </button>
+        <button onClick={this.handleClick}>{textToDisp}</button>
+        <h3>{textToDisp1}</h3>
       </div>
     );
   }
