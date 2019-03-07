@@ -7,9 +7,11 @@ class App extends Component {
     super();
     this.state = {
       todos: TodoItems,
-      isLoading: true
+      isLoading: true,
+      isLogedIn: true
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   handleChange(id) {
     this.setState(prevState => {
@@ -30,8 +32,12 @@ class App extends Component {
       this.setState({ isLoading: false });
     }, 1500);
   }
+  handleClick() {
+    console.log("Clicked");
+  }
 
   render() {
+    let textToDisp;
     const todoList = this.state.todos.map(item => (
       <ToDoItem key={item.id} item={item} handleChange={this.handleChange} />
     ));
@@ -42,9 +48,14 @@ class App extends Component {
         ) : (
           <Header isLoading={this.isLoading} />
         )}
-
         <h1>This is ToDO list</h1>
         {todoList}
+
+        <button type="button" onClick={this.handleClick}>
+          {this.state.isLogedIn
+            ? (textToDisp = "Log Out")
+            : (textToDisp = "Log in")}
+        </button>
       </div>
     );
   }
