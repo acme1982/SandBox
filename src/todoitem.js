@@ -1,7 +1,9 @@
 import React from "react";
-const someStyles = { listStyleType: "none" };
-const pStyle = { display: "inline-block" };
+
 function ToDoItem(props) {
+  const someStyles = { listStyleType: "none" };
+  const pStyle = { display: "inline-block" };
+  const pStyle1 = { display: "inline-block", textDecoration: "line-through" };
   return (
     <ul style={someStyles}>
       <li>
@@ -10,7 +12,7 @@ function ToDoItem(props) {
           checked={props.item.selected}
           onChange={() => props.handleChange(props.item.id)}
         />
-        <p style={pStyle}>{props.item.text}</p>
+        <p style={props.item.selected ? pStyle1 : pStyle}>{props.item.text}</p>
       </li>
     </ul>
   );
