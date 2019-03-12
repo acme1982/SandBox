@@ -1,5 +1,5 @@
 {
-  "name": "parcel-sandbox",
+  "name": "react-intro",
   "version": "1.0.0",
   "description": "Simple Parcel Sandbox",
   "main": "index.html",
@@ -16,5 +16,6 @@
     "@types/react": "16.8.6",
     "@types/react-dom": "16.8.2",
     "parcel-bundler": "^1.6.1"
-  }
+  },
+  "keywords": []
 }
